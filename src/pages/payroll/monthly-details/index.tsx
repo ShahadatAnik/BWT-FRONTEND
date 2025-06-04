@@ -48,14 +48,12 @@ const ManualEntry = () => {
 						'view',
 					]}
 					otherToolBarComponents={
-						<div className='min-w-40'>
-							<CustomDatePicker
-								showMonthYear={true}
-								onChange={(date) => {
-									setDate(date);
-								}}
-							/>
-						</div>
+						<CustomDatePicker
+							showMonthYear={true}
+							onChange={(date) => {
+								setDate(date);
+							}}
+						/>
 					}
 				/>
 			</div>

@@ -29,8 +29,8 @@ const ProfileInformation = () => {
 	if (!profileData) return <div>Something went wrong</div>;
 
 	return (
-		<div className='grid h-full grid-cols-5 gap-4'>
-			<div className='col-span-4 flex h-full gap-4 overflow-hidden'>
+		<div className='grid h-full grid-cols-1 gap-4 lg:grid-cols-5'>
+			<div className='flex h-full flex-col gap-4 lg:col-span-4 lg:flex-row lg:overflow-hidden'>
 				<SidebarNavigation
 					sidebarItems={sidebarItems}
 					currentTab={currentTab}

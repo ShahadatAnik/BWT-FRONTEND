@@ -20,7 +20,7 @@ const AllowOvertime = () => {
 	};
 	return (
 		<Button
-			variant={profileData?.allow_over_time ? 'outline-destructive' : 'outline'}
+			variant={profileData?.allow_over_time ? 'outline-destructive' : 'outline-accent'}
 			onClick={onSubmit}
 			className={`h-auto w-full justify-start px-4 py-2`}
 		>

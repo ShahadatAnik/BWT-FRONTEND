@@ -34,7 +34,7 @@ export function ChangePassword() {
 	}
 
 	return (
-		<div className='px-4 py-4'>
+		<div className='p-2.5 lg:p-4'>
 			<CoreForm.AddEditWrapper form={form} onSubmit={onSubmit}>
 				<FormField
 					name='current_pass'

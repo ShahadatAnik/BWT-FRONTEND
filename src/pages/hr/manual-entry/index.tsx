@@ -2,7 +2,6 @@ import { lazy, useMemo, useState } from 'react';
 import { PageProvider, TableProvider } from '@/context';
 import { Row } from '@tanstack/react-table';
 
-import { ToolbarComponent } from '@/components/core/data-table/_components/toolbar';
 import ReactSelect from '@/components/ui/react-select';
 
 import { PageInfo } from '@/utils';
@@ -85,21 +84,17 @@ const ManualEntry = () => {
 				handleDelete={handleDelete}
 				handleRefetch={refetch}
 				otherToolBarComponents={
-					<ToolbarComponent
-						option='other'
-						render={() => (
-							<ReactSelect
-								options={status || []}
-								value={status?.find((option) => option.value === type)}
-								menuPortalTarget={document.body}
-								styles={{
-									menuPortal: (base) => ({ ...base, zIndex: 999 }),
-								}}
-								onChange={(e: any) => {
-									setType(e?.value);
-								}}
-							/>
-						)}
+					<ReactSelect
+						options={status || []}
+						value={status?.find((option) => option.value === type)}
+						menuPortalTarget={document.body}
+						styles={{
+							menuPortal: (base) => ({ ...base, zIndex: 999 }),
+							control: (base) => ({ ...base, minWidth: 120 }),
+						}}
+						onChange={(e: any) => {
+							setType(e?.value);
+						}}
 					/>
 				}
 			>

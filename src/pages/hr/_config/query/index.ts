@@ -247,3 +247,10 @@ export const useHrDeviceListByUUID = <T>(uuid: string) =>
 		url: `/hr/device-list/${uuid}`,
 		enabled: !!uuid,
 	});
+
+export const useHrPunchLateByEmployeeUUID = <T>(uuid: string) =>
+	useTQuery<T>({
+		queryKey: hrQK.punchLateByEmployeeUUID(uuid),
+		url: `/hr/punch-late-log/by/${uuid}`,
+		enabled: !!uuid,
+	});

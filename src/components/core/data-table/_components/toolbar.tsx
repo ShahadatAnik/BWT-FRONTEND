@@ -125,7 +125,9 @@ export function TableToolbar() {
 						})
 					}
 				/>
-				{otherToolBarComponents}
+				{/* {otherToolBarComponents} */}
+
+				<ToolbarComponent option='other' render={() => otherToolBarComponents} />
 				<ToolbarComponent
 					option='advance-filter'
 					render={() =>
@@ -162,7 +164,6 @@ export function TableToolbar() {
 						)
 					}
 				/>
-				<ToolbarComponent option='other' render={() => otherToolBarComponents} />
 			</div>
 		),
 		[

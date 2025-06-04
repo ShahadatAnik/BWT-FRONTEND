@@ -4,6 +4,7 @@ import { z } from 'zod';
 import {
 	BOOLEAN_REQUIRED,
 	FORTUNE_ZIP_EMAIL_PATTERN,
+	MANUAL_ENTRY,
 	NUMBER_REQUIRED,
 	PASSWORD,
 	PHONE_NUMBER_REQUIRED,
@@ -208,7 +209,7 @@ export const MANUAL_ENTRY_SCHEMA = z
 		approval: z.enum(['approved', 'pending', 'rejected']),
 		reason: STRING_REQUIRED,
 		area: STRING_NULLABLE,
-		type: z.enum(['field_visit', 'manual_entry', 'missing_punch']),
+		type: MANUAL_ENTRY,
 	})
 	.superRefine((data, ctx) => {
 		if (data.type === 'field_visit' || data.type === 'manual_entry') {
@@ -245,13 +246,23 @@ export const MANUAL_ENTRY_SCHEMA = z
 				});
 			}
 		}
+
+		if (data.type === 'late_application') {
+			if (!data.entry_time) {
+				ctx.addIssue({
+					code: z.ZodIssueCode.custom,
+					message: 'Required',
+					path: ['entry_time'],
+				});
+			}
+		}
 	});
 
 export const MANUAL_ENTRY_NULL: Partial<IManualEntry> = {
 	employee_uuid: '',
 	device_uuid: undefined,
-	entry_time: '',
-	exit_time: '',
+	entry_time: null,
+	exit_time: null,
 	approval: 'pending',
 	reason: '',
 	area: null,

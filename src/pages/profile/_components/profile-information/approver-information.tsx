@@ -55,9 +55,9 @@ export function ApproverInformation({
 	}
 
 	return (
-		<div className='px-4 py-4'>
+		<div className='p-2.5 lg:p-4'>
 			<CoreForm.AddEditWrapper form={form} onSubmit={onSubmit}>
-				<div className='grid w-full grid-cols-1 gap-4'>
+				<div className='grid w-full grid-cols-1 gap-3 lg:gap-4'>
 					<FormField
 						name='first_leave_approver_uuid'
 						control={form.control}

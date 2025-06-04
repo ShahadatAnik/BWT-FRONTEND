@@ -167,6 +167,7 @@ export type IEmployeeDetails = {
 	is_admin: boolean;
 	is_hr: boolean;
 	is_line_manager: boolean;
+	is_resign: boolean;
 	allow_over_time: boolean;
 	exclude_from_attendance: boolean;
 	status: boolean;
@@ -207,4 +208,12 @@ export type IEmployeeDetails = {
 	employee_document: any[];
 	employee_education: any[];
 	employee_history: any[];
+};
+
+export type IPunchLateLog = {
+	uuid: string;
+	employee_uuid: string;
+	device_list_uuid: string;
+	punch_type: string;
+	punch_time: string;
 };

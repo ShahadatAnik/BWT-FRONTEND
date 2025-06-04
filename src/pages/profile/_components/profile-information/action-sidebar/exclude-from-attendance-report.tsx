@@ -1,4 +1,4 @@
-import { AlertTriangle, Clock } from 'lucide-react';
+import { AlertTriangle } from 'lucide-react';
 import useProfile from '@/hooks/useProfile';
 
 import { Button } from '@/components/ui/button';
@@ -20,7 +20,7 @@ const ExcludeFromAttendanceReport = () => {
 	};
 	return (
 		<Button
-			variant={profileData?.exclude_from_attendance ? 'outline' : 'outline-destructive'}
+			variant={profileData?.exclude_from_attendance ? 'outline-accent' : 'outline-destructive'}
 			onClick={onSubmit}
 			className={`h-auto w-full justify-start px-4 py-2`}
 		>

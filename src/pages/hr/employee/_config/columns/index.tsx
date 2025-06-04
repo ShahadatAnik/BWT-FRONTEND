@@ -59,7 +59,11 @@ export const employeeColumns = ({
 			accessorKey: 'device',
 			header: 'Device',
 			enableColumnFilter: false,
-			cell: (info) => <Button onClick={() => handleDevices(info.row)}>Assign Device</Button>,
+			cell: (info) => (
+				<Button size={'xs'} onClick={() => handleDevices(info.row)}>
+					Assign Device
+				</Button>
+			),
 		},
 	];
 };

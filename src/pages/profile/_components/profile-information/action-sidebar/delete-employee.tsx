@@ -16,7 +16,7 @@ const DeleteEmployee = () => {
 		<>
 			<Button
 				onClick={() => setDeleteItem({ id: user?.employee_uuid as string, name: user?.name as string })}
-				variant={'outline'}
+				variant={'destructive'}
 				className={`h-auto w-full justify-start px-4 py-2`}
 			>
 				<Trash2 className='mr-1 size-4' />

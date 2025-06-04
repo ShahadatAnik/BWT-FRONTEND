@@ -140,3 +140,5 @@ export const FILE = z
 	.instanceof(File)
 	.refine((file) => file?.size !== 0, 'Please upload an file')
 	.or(STRING_REQUIRED);
+
+export const MANUAL_ENTRY = z.enum(['manual_entry', 'missing_punch', 'field_visit', 'late_application']);

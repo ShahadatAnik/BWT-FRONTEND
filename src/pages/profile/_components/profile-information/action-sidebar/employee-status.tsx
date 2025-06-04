@@ -20,7 +20,7 @@ const EmployeeStatus = () => {
 	};
 	return (
 		<Button
-			variant={profileData?.status ? 'outline-destructive' : 'outline'}
+			variant={profileData?.status ? 'outline-destructive' : 'outline-accent'}
 			onClick={onSubmit}
 			className={`h-auto w-full justify-start px-4 py-2`}
 		>

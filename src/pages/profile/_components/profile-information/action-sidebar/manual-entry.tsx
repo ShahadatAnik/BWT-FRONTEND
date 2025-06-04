@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useHrManualEntry } from '@/pages/hr/_config/query';
 import { IManualEntry, MANUAL_ENTRY_NULL, MANUAL_ENTRY_SCHEMA } from '@/pages/hr/_config/schema';
 import { status } from '@/pages/hr/field-visit/utils';
-import { isAfter, isBefore } from 'date-fns';
+import { addDays, isBefore } from 'date-fns';
 import { Edit } from 'lucide-react';
 import useProfile from '@/hooks/useProfile';
 import useRHF from '@/hooks/useRHF';
@@ -121,18 +121,7 @@ const ManualEntry = () => {
 						<FormField
 							control={form.control}
 							name='entry_time'
-							render={(props) => (
-								<CoreForm.DateTimePicker
-									calendarProps={{
-										disabled: (date) => {
-											const exitTime = new Date(form.watch('exit_time') as string);
-											return isAfter(date, exitTime);
-										},
-									}}
-									disabled={disabled}
-									{...props}
-								/>
-							)}
+							render={(props) => <CoreForm.DateTimePicker disabled={disabled} {...props} />}
 						/>
 					)}
 					<FormField
@@ -143,7 +132,7 @@ const ManualEntry = () => {
 								calendarProps={{
 									disabled: (date) => {
 										const entryDate = new Date(form.watch('entry_time') as string);
-										return isBefore(date, entryDate);
+										return isBefore(date, addDays(entryDate, -1));
 									},
 								}}
 								disabled={disabled}

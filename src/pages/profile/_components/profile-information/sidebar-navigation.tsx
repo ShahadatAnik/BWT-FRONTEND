@@ -20,7 +20,7 @@ export function SidebarNavigation({
 	handleTabClick,
 }: SidebarNavigationProps) {
 	return (
-		<div className='flex h-full w-80 flex-col overflow-auto'>
+		<div className='flex flex-col overflow-auto lg:h-full lg:w-80'>
 			<Card className='mb-4 bg-white p-8'>
 				<div className='flex flex-col items-center space-y-4'>
 					<Avatar className='h-24 w-24'>

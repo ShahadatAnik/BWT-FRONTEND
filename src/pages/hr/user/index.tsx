@@ -3,7 +3,6 @@ import { PageProvider, TableProvider } from '@/context';
 import { Row } from '@tanstack/react-table';
 import useAccess from '@/hooks/useAccess';
 
-import { ToolbarComponent } from '@/components/core/data-table/_components/toolbar';
 import ReactSelect from '@/components/ui/react-select';
 
 import { getDateTime, PageInfo } from '@/utils';
@@ -172,35 +171,23 @@ const User = () => {
 				columns={columns}
 				data={data ?? []}
 				isLoading={isLoading}
-				advanceFilters={[
-					{
-						label: 'Status',
-						state: status,
-						onStateChange: handleChangeStatus,
-						clear: handleClearStatus,
-					},
-				]}
 				handleCreate={handleCreate}
 				handleUpdate={handleUpdate}
 				handleDelete={handleDelete}
 				handleRefetch={refetch}
 				handleDeleteAll={handleDeleteAll}
 				otherToolBarComponents={
-					<ToolbarComponent
-						option='other'
-						render={() => (
-							<ReactSelect
-								options={typeOptions || []}
-								value={typeOptions?.find((option) => option.value === type)}
-								menuPortalTarget={document.body}
-								styles={{
-									menuPortal: (base) => ({ ...base, zIndex: 999 }),
-								}}
-								onChange={(e: any) => {
-									setType(e?.value);
-								}}
-							/>
-						)}
+					<ReactSelect
+						options={typeOptions || []}
+						value={typeOptions?.find((option) => option.value === type)}
+						menuPortalTarget={document.body}
+						styles={{
+							menuPortal: (base) => ({ ...base, zIndex: 999 }),
+							control: (base) => ({ ...base, minWidth: 120 }),
+						}}
+						onChange={(e: any) => {
+							setType(e?.value);
+						}}
 					/>
 				}
 			>

@@ -20,7 +20,7 @@ const HrManager = () => {
 	};
 	return (
 		<Button
-			variant={profileData?.is_hr ? 'outline-destructive' : 'outline'}
+			variant={profileData?.is_hr ? 'outline-destructive' : 'outline-accent'}
 			onClick={onSubmit}
 			className={`h-auto w-full justify-start px-4 py-2`}
 		>

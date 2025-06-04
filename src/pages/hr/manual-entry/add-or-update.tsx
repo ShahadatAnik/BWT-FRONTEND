@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { isAfter, isBefore } from 'date-fns';
+import { addDays, isBefore } from 'date-fns';
 import useAuth from '@/hooks/useAuth';
 import useRHF from '@/hooks/useRHF';
 
@@ -155,18 +155,7 @@ const AddOrUpdate: React.FC<IAddOrUpdateProps<IManualEntryTableData>> = ({
 					<FormField
 						control={form.control}
 						name='entry_time'
-						render={(props) => (
-							<CoreForm.DateTimePicker
-								calendarProps={{
-									disabled: (date) => {
-										const exitTime = new Date(form.watch('exit_time') as string);
-										return isAfter(date, exitTime);
-									},
-								}}
-								disabled={disabled}
-								{...props}
-							/>
-						)}
+						render={(props) => <CoreForm.DateTimePicker disabled={disabled} {...props} />}
 					/>
 				)}
 				<FormField
@@ -177,7 +166,7 @@ const AddOrUpdate: React.FC<IAddOrUpdateProps<IManualEntryTableData>> = ({
 							calendarProps={{
 								disabled: (date) => {
 									const entryDate = new Date(form.watch('entry_time') as string);
-									return isBefore(date, entryDate);
+									return isBefore(date, addDays(entryDate, -1));
 								},
 							}}
 							disabled={disabled}
